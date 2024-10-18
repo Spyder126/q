@@ -1,0 +1,30 @@
+package verHtml;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+
+public class GCD {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.gecko.driver","E:\\Abhijeet tycs 18\\geckodriver.exe");
+		FirefoxProfile fp=new FirefoxProfile();
+		fp.setPreference(FirefoxProfile.PORT_PREFERENCE,"7055");
+		FirefoxOptions options=new FirefoxOptions();
+		options.setProfile(fp);
+		
+		WebDriver driver=new FirefoxDriver();
+		driver.get("E:\\Abhijeet tycs 18\\GCD.html");
+		
+		driver.findElement(By.name("n1")).sendKeys("50");
+		driver.findElement(By.name("n2")).sendKeys("5");
+		driver.findElement(By.name("btn")).click();
+		
+	String result=driver.findElement(By.name("result")).getAttribute("value");
+	System.out.println("GCD="+result);
+		
+	}
+
+}

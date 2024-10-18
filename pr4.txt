@@ -1,0 +1,27 @@
+package webpage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.firefox.*;
+import org.openqa.selenium.WebElement;
+
+public class Login {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.gecko.driver","E:\\Abhijeet tycs 18\\geckodriver.exe");
+		FirefoxDriver driver=new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("https://github.com/login");
+		driver.findElement(By.name("login")).sendKeys("abhijeet");
+		driver.findElement(By.name("password")).sendKeys("1234");
+		driver.findElement(By.xpath("//*[@name='commit']")).click();
+		
+		String s=driver.getCurrentUrl();
+		if(s.equals("https://github.com/"))
+			System.out.println("Login Sucessfully");
+		else
+			System.out.println("Login Failed");
+		
+
+	}
+
+}

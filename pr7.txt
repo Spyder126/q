@@ -1,0 +1,19 @@
+package Link;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+public class web {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.gecko.driver", "E:\\Abhijeet tycs 18\\geckodriver.exe");
+		FirefoxDriver driver=new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.google.com");
+		java.util.List<WebElement>
+		links=driver.findElements(By.tagName("a"));
+		System.out.println("Total links are:"+links.size());
+		for(int i=0;i<links.size();i++)
+			System.out.println("Link"+i+"LinkName"+links.get(i).getText());
+	}
+
+}
